@@ -1,9 +1,293 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Pricing table component it matches the snapshot 1`] = `
+exports[`Pricing table component it matches the snapshot of PricingTable #1 1`] = `
 <div
-  className="Card"
+  className="card"
 >
-  Membership Card
+  <h3
+    className="title"
+  >
+    Wellness 
+    Basic
+  </h3>
+  <p
+    className="price-container"
+  >
+    <span
+      className="price"
+    >
+      € 
+      4,99
+    </span>
+    <span
+      className="plan-period"
+    >
+      /month
+    </span>
+  </p>
+  <ul
+    className="options-list"
+  >
+    <li
+      className="option-item active"
+    >
+      Unlimited Access to Wellness Club
+    </li>
+    <li
+      className="option-item "
+    >
+      Free Fitness Training
+    </li>
+    <li
+      className="option-item "
+    >
+      Free Wifi
+    </li>
+    <li
+      className="option-item "
+    >
+      Unlimited Use of Hydromassage
+    </li>
+    <li
+      className="option-item "
+    >
+      Book classes 8 days in advance
+    </li>
+    <li
+      className="option-item "
+    >
+      Free friend access
+    </li>
+  </ul>
+  <button
+    className="button"
+    style={
+      Object {
+        "backgroundColor": "#FF6F74",
+      }
+    }
+  >
+    Subscribe to 
+    Basic
+  </button>
+</div>
+`;
+
+exports[`Pricing table component it matches the snapshot of PricingTable #2 1`] = `
+<div
+  className="card"
+>
+  <h3
+    className="title"
+  >
+    Wellness 
+    Silver
+  </h3>
+  <p
+    className="price-container"
+  >
+    <span
+      className="price"
+    >
+      € 
+      6,99
+    </span>
+    <span
+      className="plan-period"
+    >
+      /month
+    </span>
+  </p>
+  <ul
+    className="options-list"
+  >
+    <li
+      className="option-item active"
+    >
+      Unlimited Access to Wellness Club
+    </li>
+    <li
+      className="option-item active"
+    >
+      Free Fitness Training
+    </li>
+    <li
+      className="option-item active"
+    >
+      Free Wifi
+    </li>
+    <li
+      className="option-item "
+    >
+      Unlimited Use of Hydromassage
+    </li>
+    <li
+      className="option-item "
+    >
+      Book classes 8 days in advance
+    </li>
+    <li
+      className="option-item "
+    >
+      Free friend access
+    </li>
+  </ul>
+  <button
+    className="button"
+    style={
+      Object {
+        "backgroundColor": "#00D2EC",
+      }
+    }
+  >
+    Subscribe to 
+    Silver
+  </button>
+</div>
+`;
+
+exports[`Pricing table component it matches the snapshot of PricingTable #3 1`] = `
+<div
+  className="card"
+>
+  <h3
+    className="title"
+  >
+    Wellness 
+    Gold
+  </h3>
+  <p
+    className="price-container"
+  >
+    <span
+      className="price"
+    >
+      € 
+      8,99
+    </span>
+    <span
+      className="plan-period"
+    >
+      /month
+    </span>
+  </p>
+  <ul
+    className="options-list"
+  >
+    <li
+      className="option-item active"
+    >
+      Unlimited Access to Wellness Club
+    </li>
+    <li
+      className="option-item active"
+    >
+      Free Fitness Training
+    </li>
+    <li
+      className="option-item active"
+    >
+      Free Wifi
+    </li>
+    <li
+      className="option-item active"
+    >
+      Unlimited Use of Hydromassage
+    </li>
+    <li
+      className="option-item "
+    >
+      Book classes 8 days in advance
+    </li>
+    <li
+      className="option-item "
+    >
+      Free friend access
+    </li>
+  </ul>
+  <button
+    className="button"
+    style={
+      Object {
+        "backgroundColor": "#4172FE",
+      }
+    }
+  >
+    Subscribe to 
+    Gold
+  </button>
+</div>
+`;
+
+exports[`Pricing table component it matches the snapshot of PricingTable #4 1`] = `
+<div
+  className="card"
+>
+  <h3
+    className="title"
+  >
+    Wellness 
+    Platinum
+  </h3>
+  <p
+    className="price-container"
+  >
+    <span
+      className="price"
+    >
+      € 
+      10,99
+    </span>
+    <span
+      className="plan-period"
+    >
+      /month
+    </span>
+  </p>
+  <ul
+    className="options-list"
+  >
+    <li
+      className="option-item active"
+    >
+      Unlimited Access to Wellness Club
+    </li>
+    <li
+      className="option-item active"
+    >
+      Free Fitness Training
+    </li>
+    <li
+      className="option-item active"
+    >
+      Free Wifi
+    </li>
+    <li
+      className="option-item active"
+    >
+      Unlimited Use of Hydromassage
+    </li>
+    <li
+      className="option-item active"
+    >
+      Book classes 8 days in advance
+    </li>
+    <li
+      className="option-item active"
+    >
+      Free friend access
+    </li>
+  </ul>
+  <button
+    className="button"
+    style={
+      Object {
+        "backgroundColor": "#00FF3B",
+      }
+    }
+  >
+    Subscribe to 
+    Platinum
+  </button>
 </div>
 `;

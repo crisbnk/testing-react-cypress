@@ -22,13 +22,11 @@
   color: #61dafb;
 }
 
-.card {
-  background-color: gray;
+.container {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  border: 3px solid black;
 }
 
 @keyframes App-logo-spin {

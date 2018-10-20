@@ -1,5 +1,6 @@
 import React from 'react';
 import './PricingTable.css';
+import Button from './Button';
 
 export default function PricingTable(props) {
   const buttonStyle = {
@@ -7,7 +8,7 @@ export default function PricingTable(props) {
   };
 
   return (
-    <div className='card'>
+    <div className={`card package-${props.title.toLowerCase()}`}>
       <h3 className='title'>Wellness {props.title}</h3>
       <p className='price-container'>
         <span className='price'>
@@ -29,9 +30,7 @@ export default function PricingTable(props) {
           )
         })}
       </ul>
-      <button className='button' style={buttonStyle}>
-        Subscribe to {props.title}
-      </button>
+      <Button title={`Subscribe to ${props.title}`} buttonStyle={buttonStyle} />
     </div>
   );
 }

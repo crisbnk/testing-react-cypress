@@ -3,117 +3,103 @@ describe('Membership price page', () => {
     cy.visit('/');
   });
 
-  it('Finds membership price cards', () => {
+  it('User see 4 membership info cards', () => {
     cy.get('.card').should('have.length', 4);
   });
 
-  // CARD #1
-  it('Finds title in first membership price card', () => {
-    cy.get('.card').first().find('.title').contains('Wellness Basic');
+  // Basic Membership Card
+  it('User checks Basic Membership info card', () => {
+    cy.get('.package-basic').within(() => {
+      cy.get('h3').contains('Wellness Basic');
+      cy.get('.price').contains('€ 4,99');
+      cy.get('ul.options-list li').should(($lis) => {
+        expect($lis).to.have.length(6)
+        expect($lis.eq(0)).to.contain('Unlimited Access to Wellness Club')
+        .and.to.have.class('active')
+        expect($lis.eq(1)).to.contain('Free Fitness Training')
+        expect($lis.eq(2)).to.contain('Free Wifi')
+        expect($lis.eq(3)).to.contain('Unlimited Use of Hydromassage')
+        expect($lis.eq(4)).to.contain('Book classes 8 days in advance')
+        expect($lis.eq(5)).to.contain('Free friend access')
+      });
+      cy.get('.button').contains('Subscribe to Basic');
+    });
   });
-  it('Finds price in first membership price card', () => {
-    cy.get('.card').first().find('.price').contains('€ 4,99');
-  });
-  it('Finds options list in first membership price card', () => {
-    cy.get('.card').first().find('ul.options-list li')
-    .should(($lis) => {
-      expect($lis).to.have.length(6)
-      expect($lis.eq(0)).to.contain('Unlimited Access to Wellness Club')
-      .and.to.have.class('active')
-      expect($lis.eq(1)).to.contain('Free Fitness Training')
-      expect($lis.eq(2)).to.contain('Free Wifi')
-      expect($lis.eq(3)).to.contain('Unlimited Use of Hydromassage')
-      expect($lis.eq(4)).to.contain('Book classes 8 days in advance')
-      expect($lis.eq(5)).to.contain('Free friend access')
-    })
-  });
-  it('Finds button in first membership price card', () => {
-    cy.get('.card').first().find('.button')
-    .contains('Subscribe to Basic');
+  it('User can purchase a Basic Membership', () => {
+    cy.get('.package-basic')
+    .find('.button')
+    .contains('Subscribe to Basic')
+    .click();
+
+    cy.get('.package-basic')
+    .find('.button')
+    .contains('Proceed to Checkout');
   });
 
-  // CARD #2
-  it('Finds title in second membership price card', () => {
-    cy.get('.card').first().next().find('.title').contains('Wellness Silver');
-  });
-  it('Finds price in second membership price card', () => {
-    cy.get('.card').first().next().find('.price').contains('€ 6,99');
-  });
-  it('Finds options list in second membership price card', () => {
-    cy.get('.card').first().next().find('ul.options-list li')
-    .should(($lis) => {
-      expect($lis).to.have.length(6)
-      expect($lis.eq(0)).to.contain('Unlimited Access to Wellness Club')
-      .and.to.have.class('active')
-      expect($lis.eq(1)).to.contain('Free Fitness Training')
-      .and.to.have.class('active')
-      expect($lis.eq(2)).to.contain('Free Wifi')
-      .and.to.have.class('active')
-      expect($lis.eq(3)).to.contain('Unlimited Use of Hydromassage')
-      expect($lis.eq(4)).to.contain('Book classes 8 days in advance')
-      expect($lis.eq(5)).to.contain('Free friend access')
-    })
-  });
-  it('Finds button in second membership price card', () => {
-    cy.get('.card').first().next().find('.button')
-    .contains('Subscribe to Silver');
+  // Silver Membership Card
+  it('User checks Silver Membership info card', () => {
+    cy.get('.package-silver').within(() => {
+      cy.get('h3').contains('Wellness Silver');
+      cy.get('.price').contains('€ 6,99');
+      cy.get('ul.options-list li').should(($lis) => {
+        expect($lis).to.have.length(6)
+        expect($lis.eq(0)).to.contain('Unlimited Access to Wellness Club')
+        .and.to.have.class('active')
+        expect($lis.eq(1)).to.contain('Free Fitness Training')
+        .and.to.have.class('active')
+        expect($lis.eq(2)).to.contain('Free Wifi')
+        .and.to.have.class('active')
+        expect($lis.eq(3)).to.contain('Unlimited Use of Hydromassage')
+        expect($lis.eq(4)).to.contain('Book classes 8 days in advance')
+        expect($lis.eq(5)).to.contain('Free friend access')
+      });
+      cy.get('.button').contains('Subscribe to Silver');
+    });
   });
 
-  // CARD #3
-  it('Finds title in third membership price card', () => {
-    cy.get('.card').first().next().next().find('.title').contains('Wellness Gold');
-  });
-  it('Finds title in third membership price card', () => {
-    cy.get('.card').first().next().next().find('.price').contains('€ 8,99');
-  });
-  it('Finds options list in third membership price card', () => {
-    cy.get('.card').first().next().next().find('ul.options-list li')
-    .should(($lis) => {
-      expect($lis).to.have.length(6)
-      expect($lis.eq(0)).to.contain('Unlimited Access to Wellness Club')
-      .and.to.have.class('active')
-      expect($lis.eq(1)).to.contain('Free Fitness Training')
-      .and.to.have.class('active')
-      expect($lis.eq(2)).to.contain('Free Wifi')
-      .and.to.have.class('active')
-      expect($lis.eq(3)).to.contain('Unlimited Use of Hydromassage')
-      .and.to.have.class('active')
-      expect($lis.eq(4)).to.contain('Book classes 8 days in advance')
-      expect($lis.eq(5)).to.contain('Free friend access')
-    })
-  });
-  it('Finds button in third membership price card', () => {
-    cy.get('.card').first().next().next().find('.button')
-    .contains('Subscribe to Gold');
+  // Gold Membership Card
+  it('User checks Gold Membership info card', () => {
+    cy.get('.package-gold').within(() => {
+      cy.get('h3').contains('Wellness Gold');
+      cy.get('.price').contains('€ 8,99');
+      cy.get('ul.options-list li').should(($lis) => {
+        expect($lis).to.have.length(6)
+        expect($lis.eq(0)).to.contain('Unlimited Access to Wellness Club')
+        .and.to.have.class('active')
+        expect($lis.eq(1)).to.contain('Free Fitness Training')
+        .and.to.have.class('active')
+        expect($lis.eq(2)).to.contain('Free Wifi')
+        .and.to.have.class('active')
+        expect($lis.eq(3)).to.contain('Unlimited Use of Hydromassage')
+        .and.to.have.class('active')
+        expect($lis.eq(4)).to.contain('Book classes 8 days in advance')
+        expect($lis.eq(5)).to.contain('Free friend access')
+      });
+      cy.get('.button').contains('Subscribe to Gold');
+    });
   });
 
-  // CARD #4
-  it('Finds title in fourth membership price card', () => {
-    cy.get('.card').last().find('.title').contains('Wellness Platinum');
-  });
-  it('Finds title in fourth membership price card', () => {
-    cy.get('.card').last().find('.price').contains('€ 10,99');
-  });
-  it('Finds options list in fourth membership price card', () => {
-    cy.get('.card').last().find('ul.options-list li')
-    .should(($lis) => {
-      expect($lis).to.have.length(6)
-      expect($lis.eq(0)).to.contain('Unlimited Access to Wellness Club')
-      .and.to.have.class('active')
-      expect($lis.eq(1)).to.contain('Free Fitness Training')
-      .and.to.have.class('active')
-      expect($lis.eq(2)).to.contain('Free Wifi')
-      .and.to.have.class('active')
-      expect($lis.eq(3)).to.contain('Unlimited Use of Hydromassage')
-      .and.to.have.class('active')
-      expect($lis.eq(4)).to.contain('Book classes 8 days in advance')
-      .and.to.have.class('active')
-      expect($lis.eq(5)).to.contain('Free friend access')
-      .and.to.have.class('active')
-    })
-  });
-  it('Finds button in fourth membership price card', () => {
-    cy.get('.card').last().find('.button')
-    .contains('Subscribe to Platinum');
+  // Platinum Membership Card
+  it('User checks Platinum Membership info card', () => {
+    cy.get('.package-platinum').within(() => {
+      cy.get('h3').contains('Wellness Platinum');
+      cy.get('.price').contains('€ 10,99');
+      cy.get('ul.options-list li').should(($lis) => {
+        expect($lis).to.have.length(6)
+        expect($lis.eq(0)).to.contain('Unlimited Access to Wellness Club')
+        .and.to.have.class('active')
+        expect($lis.eq(1)).to.contain('Free Fitness Training')
+        .and.to.have.class('active')
+        expect($lis.eq(2)).to.contain('Free Wifi')
+        .and.to.have.class('active')
+        expect($lis.eq(3)).to.contain('Unlimited Use of Hydromassage')
+        .and.to.have.class('active')
+        expect($lis.eq(4)).to.contain('Book classes 8 days in advance')
+        .and.to.have.class('active')
+        expect($lis.eq(5)).to.contain('Free friend access')
+        .and.to.have.class('active')
+      });
+      cy.get('.button').contains('Subscribe to Platinum');
+    });
   });
 });

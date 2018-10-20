@@ -3,12 +3,12 @@ describe('Membership price page', () => {
     cy.visit('/');
   });
 
-  it('User see 4 membership info cards', () => {
+  it('As a User I can see 4 membership info cards', () => {
     cy.get('.card').should('have.length', 4);
   });
 
   // Basic Membership Card
-  it('User checks Basic Membership info card', () => {
+  it('As a User I can check Basic Membership info card', () => {
     cy.get('.package-basic').within(() => {
       cy.get('h3').contains('Wellness Basic');
       cy.get('.price').contains('€ 4,99');
@@ -25,19 +25,22 @@ describe('Membership price page', () => {
       cy.get('.button').contains('Subscribe to Basic');
     });
   });
-  it('User can purchase a Basic Membership', () => {
+  it('As a User I can purchase a Basic Membership', () => {
     cy.get('.package-basic')
     .find('.button')
     .contains('Subscribe to Basic')
     .click();
 
-    cy.get('.package-basic')
-    .find('.button')
-    .contains('Proceed to checkout');
+    cy.get('.checkout').within(() => {
+      cy.get('h3').contains('Membership Checkout');
+      cy.get('.membership-name').contains('Basic');
+      cy.get('.price').contains('€ 4,99');
+      cy.get('button').contains('Complete Payment');
+    });
   });
 
   // Silver Membership Card
-  it('User checks Silver Membership info card', () => {
+  it('As a User I can check Silver Membership info card', () => {
     cy.get('.package-silver').within(() => {
       cy.get('h3').contains('Wellness Silver');
       cy.get('.price').contains('€ 6,99');
@@ -58,7 +61,7 @@ describe('Membership price page', () => {
   });
 
   // Gold Membership Card
-  it('User checks Gold Membership info card', () => {
+  it('As a User I can check Gold Membership info card', () => {
     cy.get('.package-gold').within(() => {
       cy.get('h3').contains('Wellness Gold');
       cy.get('.price').contains('€ 8,99');
@@ -80,7 +83,7 @@ describe('Membership price page', () => {
   });
 
   // Platinum Membership Card
-  it('User checks Platinum Membership info card', () => {
+  it('As a User I can check Platinum Membership info card', () => {
     cy.get('.package-platinum').within(() => {
       cy.get('h3').contains('Wellness Platinum');
       cy.get('.price').contains('€ 10,99');

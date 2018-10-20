@@ -33,7 +33,7 @@ describe('Membership price page', () => {
 
     cy.get('.package-basic')
     .find('.button')
-    .contains('Proceed to Checkout');
+    .contains('Proceed to checkout');
   });
 
   // Silver Membership Card

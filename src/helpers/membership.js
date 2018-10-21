@@ -8,7 +8,7 @@ exports.membership = {
       "id": 1,
       "title": "Basic",
       "price": "4,99",
-      "buttonColor": "#FF6F74",
+      "buttonColor": "rgb(255, 111, 116)",
       "options": [
         {
           "name": "Unlimited Access to Wellness Club",
@@ -40,7 +40,7 @@ exports.membership = {
       "id": 2,
       "title": "Silver",
       "price": "6,99",
-      "buttonColor": "#00D2EC",
+      "buttonColor": "rgb(0, 210, 236)",
       "options": [
         {
           "name": "Unlimited Access to Wellness Club",
@@ -72,7 +72,7 @@ exports.membership = {
       "id": 3,
       "title": "Gold",
       "price": "8,99",
-      "buttonColor": "#4172FE",
+      "buttonColor": "rgb(65, 114, 254)",
       "options": [
         {
           "name": "Unlimited Access to Wellness Club",
@@ -104,7 +104,7 @@ exports.membership = {
       "id": 4,
       "title": "Platinum",
       "price": "10,99",
-      "buttonColor": "#00FF3B",
+      "buttonColor": "rgb(0, 255, 59)",
       "options": [
         {
           "name": "Unlimited Access to Wellness Club",

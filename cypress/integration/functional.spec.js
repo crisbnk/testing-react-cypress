@@ -32,10 +32,13 @@ describe('Membership price page', () => {
     .click();
 
     cy.get('.checkout').within(() => {
-      cy.get('h3').contains('Membership Checkout');
+      cy.get('h3').contains('Checkout');
       cy.get('.membership-name').contains('Basic');
-      cy.get('.price').contains('€ 4,99');
-      cy.get('button').contains('Complete Payment');
+      cy.get('.membership-price').contains('€ 4,99');
+      cy.get('button').should(($btn) => {
+        expect($btn.text()).to.contain('Complete Payment');
+        expect($btn).to.have.css('background-color', 'rgb(255, 111, 116)')
+      });
     });
   });
 
@@ -57,6 +60,22 @@ describe('Membership price page', () => {
         expect($lis.eq(5)).to.contain('Free friend access')
       });
       cy.get('.button').contains('Subscribe to Silver');
+    });
+  });
+  it('As a User I can purchase a Silver Membership', () => {
+    cy.get('.package-silver')
+    .find('.button')
+    .contains('Subscribe to Silver')
+    .click();
+
+    cy.get('.checkout').within(() => {
+      cy.get('h3').contains('Checkout');
+      cy.get('.membership-name').contains('Silver');
+      cy.get('.membership-price').contains('€ 6,99');
+      cy.get('button').should(($btn) => {
+        expect($btn.text()).to.contain('Complete Payment');
+        expect($btn).to.have.css('background-color', 'rgb(0, 210, 236)')
+      });
     });
   });
 
@@ -81,6 +100,22 @@ describe('Membership price page', () => {
       cy.get('.button').contains('Subscribe to Gold');
     });
   });
+  it('As a User I can purchase a Gold Membership', () => {
+    cy.get('.package-gold')
+    .find('.button')
+    .contains('Subscribe to Gold')
+    .click();
+
+    cy.get('.checkout').within(() => {
+      cy.get('h3').contains('Checkout');
+      cy.get('.membership-name').contains('Gold');
+      cy.get('.membership-price').contains('€ 8,99');
+      cy.get('button').should(($btn) => {
+        expect($btn.text()).to.contain('Complete Payment');
+        expect($btn).to.have.css('background-color', 'rgb(65, 114, 254)')
+      });
+    });
+  });
 
   // Platinum Membership Card
   it('As a User I can check Platinum Membership info card', () => {
@@ -103,6 +138,22 @@ describe('Membership price page', () => {
         .and.to.have.class('active')
       });
       cy.get('.button').contains('Subscribe to Platinum');
+    });
+  });
+  it('As a User I can purchase a Platinum Membership', () => {
+    cy.get('.package-platinum')
+    .find('.button')
+    .contains('Subscribe to Platinum')
+    .click();
+
+    cy.get('.checkout').within(() => {
+      cy.get('h3').contains('Checkout');
+      cy.get('.membership-name').contains('Platinum');
+      cy.get('.membership-price').contains('€ 10,99');
+      cy.get('button').should(($btn) => {
+        expect($btn.text()).to.contain('Complete Payment');
+        expect($btn).to.have.css('background-color', 'rgb(0, 255, 59)')
+      });
     });
   });
 });

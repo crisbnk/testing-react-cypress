@@ -42,7 +42,7 @@ class App extends Component {
           }) : <CheckoutForm
                 title={this.state.checkoutInfo.title}
                 price={`€ ${this.state.checkoutInfo.price}`}
-                color={this.state.checkoutInfo.color}
+                buttonColor={this.state.checkoutInfo.color}
               />
         }
       </div>

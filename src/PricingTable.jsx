@@ -37,9 +37,9 @@ export default class PricingTable extends Component {
               <li
                 key={index}
                 className={`option-item ${opt.active?'active':''}`}
-                >
-                  {opt.name}
-                </li>
+              >
+                {opt.name}
+              </li>
               )
             })}
         </ul>

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import './App.css';
 import PricingTable from './PricingTable';
 import CheckoutForm from './CheckoutForm';
-import { membership } from './helpers/membership';
 
 class App extends Component {
   constructor(props) {
@@ -12,15 +12,36 @@ class App extends Component {
         title: '',
         price: '',
         color: ''
-      }
+      },
+      membershipPlans: []
     };
     this.handleCheckout =  this.handleCheckout.bind(this);
   }
 
-  handleCheckout(checkoutInfo) {
-    this.setState({
-      checkoutInfo: checkoutInfo
+  componentDidMount() {
+    axios.get('http://localhost:3001/plans')
+    .then(res => {
+      this.loadMembership(res.data);
+    })
+    .catch(err => {
+      console.log(err);
     });
+  }
+
+  loadMembership(membershipPlans) {
+    this.setState(this.membershipUpdater(membershipPlans));
+  }
+
+  membershipUpdater(membershipPlans) {
+    return { membershipPlans };
+  }
+
+  handleCheckout(checkoutInfo) {
+    this.setState(this.checkoutInfoUpdater(checkoutInfo));
+  }
+
+  checkoutInfoUpdater(checkoutInfo) {
+    return { checkoutInfo };
   }
 
   render() {
@@ -28,7 +49,7 @@ class App extends Component {
       <div className='container'>
         {
           !this.state.checkoutInfo.title ?
-          membership.plans.map((plan, index) => {
+          this.state.membershipPlans.map((plan, index) => {
             return (
               <PricingTable
                 key={index}

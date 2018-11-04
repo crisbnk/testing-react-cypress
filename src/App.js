@@ -18,14 +18,14 @@ class App extends Component {
     this.handleCheckout =  this.handleCheckout.bind(this);
   }
 
-  componentDidMount() {
-    axios.get('http://localhost:3001/plans')
-    .then(res => {
-      this.loadMembership(res.data);
-    })
-    .catch(err => {
-      console.log(err);
-    });
+  // Move async logic out of React Component?
+  async componentDidMount() {
+    try {
+      const response = await axios.get('http://localhost:3001/plans');
+      this.loadMembership(response.data);
+    } catch(e) {
+      throw new Error(e);
+    }
   }
 
   loadMembership(membershipPlans) {

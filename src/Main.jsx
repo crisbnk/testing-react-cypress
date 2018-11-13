@@ -19,7 +19,8 @@ class Main extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
+  handleClick(plan) {
+    this.setCheckoutInfo(plan);
     this.showCheckoutForm();
   }
 
@@ -49,6 +50,18 @@ class Main extends Component {
     });
   }
 
+  setCheckoutInfo(plan) {
+    this.setState(() => {
+      return {
+        checkoutInfo: {
+          title: plan.title,
+          price: plan.price,
+          color: plan.buttonColor
+        }
+      };
+    });
+  }
+
   render() {
     return (
       <div className="container">
@@ -65,7 +78,7 @@ class Main extends Component {
                 <button
                   className="button"
                   style={{ backgroundColor: plan.buttonColor }}
-                  onClick={this.handleClick}
+                  onClick={this.handleClick.bind(this, plan)}
                 >
                   Subscribe to {plan.title}
                 </button>
